@@ -1,0 +1,22 @@
+.b-menu-button {
+    float: left;
+
+    height: 100%;
+    width: 40px;
+
+    line-height: 30px;
+    text-align: center;
+    font-size: 22px;
+    color: #505861;
+    text-shadow: 0 1px 0 #f7f8f9;
+
+    border-right: solid 1px #b7bfc9;
+
+    vertical-align: middle;
+
+    cursor: pointer;
+}
+
+.b-menu-button:hover {
+    background: rgba(0,0,0,.1);
+}

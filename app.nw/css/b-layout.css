@@ -1,0 +1,26 @@
+body, html {
+    height: 100%;
+}
+
+.b-layout {
+    font-family: "Lucida Grande", Helvetica, Arial;
+    height: 100%;
+}
+
+.b-layout__sidebar {
+    width: 200px;
+    position: absolute;
+    height: 100%;
+}
+
+.b-layout__content {
+    margin-left: 200px;
+    height: 100%;
+}
+
+/*div::before {
+    content: attr(class);
+    font-size: 11px;
+    position: absolute;
+    opacity: .3;
+}*/

@@ -1,4 +1,1 @@
-lmd-gui
-=======
-
-GUI for LMD
+# GUI for LMD

@@ -1,0 +1,51 @@
+.b-projects {
+    height: 100%;
+    position: relative;
+    padding-top: 8px;
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+}
+
+.b-projects__header {
+    color: #878b92;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin: 0 0 5px 5px;
+
+    position: relative;
+    cursor: default;
+}
+
+.b-projects__list {
+    margin-bottom: 5px;
+}
+
+.b-projects__list__item {
+    font-size: 10px;
+
+    height: 27px;
+    line-height: 27px;
+    left: -5px;
+    padding-left: 10px;
+
+    cursor: default;
+}
+
+.b-projects__list__item_state_current {
+    border-bottom: solid 1px #366bac;
+    border-top: solid 1px #769fc5;
+
+    outline: solid 1px #c2c8ce;
+
+    background: -moz-linear-gradient(top, rgba(117,170,221,1) 0%, rgba(64,126,200,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(117,170,221,1)), color-stop(100%,rgba(64,126,200,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(117,170,221,1) 0%,rgba(64,126,200,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to bottom, rgba(117,170,221,1) 0%,rgba(64,126,200,1) 100%); /* W3C */
+
+    color: #fff;
+    text-shadow: 0 -1px 0 #333;
+    font-size: 11px;
+}

@@ -1,0 +1,11 @@
+.idea/
+app.nw/app.nw
+app.nw/node_modules
+win/
+linux/
+npm-debug.log
+*.7z
+*.tar.gz
+*.zip
+*.exe
+*.app

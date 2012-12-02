@@ -1,0 +1,27 @@
+.b-landing-box,
+.b-landing-box__content {
+    padding: 5px;
+    height: 100%;
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.b-landing-box__content {
+    border: dashed 2px #b9c3cf;
+    border-radius: 8px;
+
+    position: relative;
+    padding: 0;
+}
+
+.b-landing-box__message {
+    position: relative;
+    padding: 0 10%;
+    top: 50%;
+
+    font-size: 13px;
+    color: #8f9aa6;
+    text-shadow: 0 1px 0 #fff;
+    text-align: center;
+}

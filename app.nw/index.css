@@ -1,0 +1,157 @@
+.b-landing-box,
+.b-landing-box__content {
+    padding: 5px;
+    height: 100%;
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.b-landing-box__content {
+    border: dashed 2px #b9c3cf;
+    border-radius: 8px;
+
+    position: relative;
+    padding: 0;
+}
+
+.b-landing-box__message {
+    position: relative;
+    padding: 0 10%;
+    top: 50%;
+
+    font-size: 13px;
+    color: #8f9aa6;
+    text-shadow: 0 1px 0 #fff;
+    text-align: center;
+}body, html {
+    height: 100%;
+}
+
+.b-layout {
+    font-family: "Lucida Grande", Helvetica, Arial;
+    height: 100%;
+}
+
+.b-layout__sidebar {
+    width: 200px;
+    position: absolute;
+    height: 100%;
+}
+
+.b-layout__content {
+    margin-left: 200px;
+    height: 100%;
+}
+
+/*div::before {
+    content: attr(class);
+    font-size: 11px;
+    position: absolute;
+    opacity: .3;
+}*/.b-menu-button {
+    float: left;
+
+    height: 100%;
+    width: 40px;
+
+    line-height: 30px;
+    text-align: center;
+    font-size: 22px;
+    color: #505861;
+    text-shadow: 0 1px 0 #f7f8f9;
+
+    border-right: solid 1px #b7bfc9;
+
+    vertical-align: middle;
+
+    cursor: pointer;
+}
+
+.b-menu-button:hover {
+    background: rgba(0,0,0,.1);
+}.b-projects {
+    height: 100%;
+    position: relative;
+    padding-top: 8px;
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+}
+
+.b-projects__header {
+    color: #878b92;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin: 0 0 5px 5px;
+
+    position: relative;
+    cursor: default;
+}
+
+.b-projects__list {
+    margin-bottom: 5px;
+}
+
+.b-projects__list__item {
+    font-size: 10px;
+
+    height: 27px;
+    line-height: 27px;
+    left: -5px;
+    padding-left: 10px;
+
+    cursor: default;
+}
+
+.b-projects__list__item_state_current {
+    border-bottom: solid 1px #366bac;
+    border-top: solid 1px #769fc5;
+
+    outline: solid 1px #c2c8ce;
+
+    background: -moz-linear-gradient(top, rgba(117,170,221,1) 0%, rgba(64,126,200,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(117,170,221,1)), color-stop(100%,rgba(64,126,200,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(117,170,221,1) 0%,rgba(64,126,200,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to bottom, rgba(117,170,221,1) 0%,rgba(64,126,200,1) 100%); /* W3C */
+
+    color: #fff;
+    text-shadow: 0 -1px 0 #333;
+    font-size: 11px;
+}.b-sidebar {
+    height: 100%;
+}
+
+.b-sidebar > div {
+    box-shadow: -10px 0px 10px -12px #999 inset;
+}
+
+.b-sidebar__content {
+    height: 100%;
+    margin-bottom: -31px;
+    padding-bottom: 31px;
+
+    background: #d9dfe6;
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.b-sidebar__menu {
+    height: 30px;
+    border-top: solid 1px #a9aeb3;
+
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,247,249,1)), color-stop(50%,rgba(235,238,241,1)), color-stop(51%,rgba(228,232,237,1)), color-stop(100%,rgba(217,223,230,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(246,247,249,1) 0%,rgba(235,238,241,1) 50%,rgba(228,232,237,1) 51%,rgba(217,223,230,1) 100%);
+    background: linear-gradient(to bottom, rgba(246,247,249,1) 0%,rgba(235,238,241,1) 50%,rgba(228,232,237,1) 51%,rgba(217,223,230,1) 100%);
+}/*
+Copyright (c) 2011, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 2.9.0
+*/
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}del,ins{text-decoration:none}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:baseline}sub{vertical-align:baseline}legend{color:#000}.i-hidden {
+    display: none;
+}

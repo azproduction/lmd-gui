@@ -1,0 +1,39 @@
+{
+    "name": "lmd-gui",
+    "version": "0.0.0",
+    "description": "GUI for LMD",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/azproduction/lmd-gui.git"
+    },
+    "keywords": [
+        "gui",
+        "tool",
+        "lmd",
+        "builder",
+        "optimizer"
+    ],
+    "bugs": "https://github.com/azproduction/lmd-gui/issues",
+    "author": {
+        "name": "Mikhail Davydov",
+        "email": "azazel.private@gmail.com"
+    },
+    "dependencies": {
+        "lmd": "git://github.com/azproduction/lmd.git#issue-59"
+    },
+    "engines": {
+        "node": ">= 0.8.0"
+    },
+    "license": "MIT",
+
+    "main": "index.html",
+    "window": {
+        "toolbar": false,
+        "resizable": true,
+        "fullscreen": false,
+        "width": 768,
+        "min_width": 768,
+        "height": 475,
+        "min_height": 475
+    }
+}
