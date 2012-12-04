@@ -1,0 +1,50 @@
+.b-action-button {
+    cursor: pointer;
+    width: 50px;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+
+    float: left;
+    margin-right: 10px;
+}
+
+.b-action-button_state_active,
+.b-action-button_state_active .b-action-button__title {
+    color: #407EC8;
+    /*text-shadow: 0 0 7px #75AADD;
+
+    -webkit-animation: burn 2s infinite linear;
+       -moz-animation: burn 2s infinite linear;
+            animation: burn 2s infinite linear;*/
+}
+
+@-webkit-keyframes burn {
+	0% { text-shadow: 0 0 5px #75AADD; }
+	50% { text-shadow: 0 0 10px #407EC8; }
+	100% { text-shadow: 0 0 5px #75AADD; }
+}
+
+@-moz-keyframes burn {
+	0% { text-shadow: 0 0 5px #75AADD; }
+	50% { text-shadow: 0 0 10px #407EC8; }
+	100% { text-shadow: 0 0 5px #75AADD; }
+}
+
+@keyframes burn {
+	0% { text-shadow: 0 0 5px #75AADD; }
+	50% { text-shadow: 0 0 10px #407EC8; }
+	100% { text-shadow: 0 0 5px #75AADD; }
+}
+
+.b-action-button__icon {
+    font-size: 32px;
+}
+
+.b-action-button__title {
+    font-size: 13px;
+    color: #777;
+}
+
+.b-action-button:hover .b-action-button__title {
+    text-decoration: underline;
+}

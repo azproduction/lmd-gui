@@ -34,6 +34,12 @@
     cursor: default;
 }
 
+.projects__list__item__services {
+    float: right;
+    margin-right: 3px;
+    font-size: 11px;
+}
+
 .b-projects__list__item_state_current {
     border-bottom: solid 1px #366bac;
     border-top: solid 1px #769fc5;

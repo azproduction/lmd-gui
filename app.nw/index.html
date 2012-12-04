@@ -12,6 +12,7 @@
                 <div class="b-sidebar__content">
                     <div class="b-landing-box i-hidden">
                         <div class="b-landing-box__content">
+                            <div class="b-landing-box__icon icon-folder"></div>
                             <div class="b-landing-box__message">Drag and drop an existing folder to add it to LMD</div>
                         </div>
                     </div>
@@ -19,10 +20,30 @@
                         <div class="b-projects__header">Projects</div>
                         <ul class="b-projects__list">
                             <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item b-projects__list__item_state_current">New Project Focused</li>
-                            <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item">New Project</li>
+                            <li class="b-projects__list__item b-projects__list__item_state_current">
+                                <span>New Project Focused</span>
+                                <div class="projects__list__item__services">
+                                    <span class="icon-cw"></span><span class="icon-eye"></span><span class="icon-chart-bar"></span>
+                                </div>
+                            </li>
+                            <li class="b-projects__list__item">
+                                <span>New Project</span>
+                                <div class="projects__list__item__services">
+                                    <span class="icon-cw"></span><span class="icon-eye"></span><span class="icon-chart-bar"></span>
+                                </div>
+                            </li>
+                            <li class="b-projects__list__item">
+                                <span>New Project</span>
+                                <div class="projects__list__item__services">
+                                    <span class="icon-eye"></span><span class="icon-chart-bar"></span>
+                                </div>
+                            </li>
+                            <li class="b-projects__list__item">
+                                <span>New Project</span>
+                                <div class="projects__list__item__services">
+                                    <span class="icon-chart-bar"></span>
+                                </div>
+                            </li>
                             <li class="b-projects__list__item">New Project</li>
                             <li class="b-projects__list__item">New Project</li>
                             <li class="b-projects__list__item">New Project</li>
@@ -47,7 +68,99 @@
             </div>
         </div>
         <div class="b-layout__content">
-            3
+            <div class="b-getting-started i-hidden">
+                <div class="b-getting-started__block">
+                    <h1 class="b-getting-started__title">Welcome to LMD builder!</h1>
+                    <p class="b-getting-started__description">Big JavaScript application cause huge startup latency.
+                        A 1Mb of JavaScript initializes about ~600-3000ms! without touching any part of DOM.
+                        It evals module only when they are required. LMD is inspired by AMD
+                        and provides similar module interface</p>
+                </div>
+            </div>
+            <div class="b-toolbar">
+                <div class="b-toolbar__project-info">
+                    <div class="b-project-info">
+                        <div class="b-project-info__title">
+                            <a class="b-project-info__link" href="#">Pewpew</a>
+                        </div>
+                        <div class="b-project-info__location">
+                            <a class="b-project-info__link" href="#">/Users/azproduction/Documents/my/lmd-gui</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="b-toolbar__actions">
+                    <div class="b-action-button">
+                        <div class="b-action-button__icon icon-help-circled"></div>
+                        <div class="b-action-button__title">Info</div>
+                    </div>
+                    <div class="b-action-button">
+                        <div class="b-action-button__icon icon-tools"></div>
+                        <div class="b-action-button__title">Rebuild</div>
+                    </div>
+                    <div class="b-action-button b-action-button_state_active">
+                        <div class="b-action-button__icon icon-eye"></div>
+                        <div class="b-action-button__title">Watch</div>
+                    </div>
+                    <div class="b-action-button b-action-button_state_active">
+                        <div class="b-action-button__icon icon-chart-bar"></div>
+                        <div class="b-action-button__title">Server</div>
+                    </div>
+                </div>
+            </div>
+            <div class="b-log">
+                <div class="b-log__report">
+<div class="b-log__report__title">lmd info</div>
+<pre class="b-log__report__result">
+info:
+info:    LMD Package `index` (.lmd/index.lmd.json)
+info:
+info:    Modules (1)
+info:
+info:    name depends type  lazy greedy coverage sandbox
+info:    main ✘       plain ✘    ✘      ✘        ✘
+info:
+info:    Module Paths, Depends and Features
+info:
+info:    main  <- /Users/azproduction/Documents/my/lmd-gui/app.nw/js/main.js
+info:
+info:    Flags
+info:
+info:    ie  ✘
+info:
+info:    Paths
+info:
+info:    root      /Users/azproduction/Documents/my/lmd-gui/app.nw/js
+info:    output    /Users/azproduction/Documents/my/lmd-gui/app.nw/index.lmd.js
+info:    www_root  ✘
+info:
+</pre>
+<div class="b-log__report__title">lmd info</div>
+<pre class="b-log__report__result">
+info:
+info:    LMD Package `index` (.lmd/index.lmd.json)
+info:
+info:    Modules (1)
+info:
+info:    name depends type  lazy greedy coverage sandbox
+info:    main ✘       plain ✘    ✘      ✘        ✘
+info:
+info:    Module Paths, Depends and Features
+info:
+info:    main  <- /Users/azproduction/Documents/my/lmd-gui/app.nw/js/main.js
+info:
+info:    Flags
+info:
+info:    ie  ✘
+info:
+info:    Paths
+info:
+info:    root      /Users/azproduction/Documents/my/lmd-gui/app.nw/js
+info:    output    /Users/azproduction/Documents/my/lmd-gui/app.nw/index.lmd.js
+info:    www_root  ✘
+info:
+</pre>
+                </div>
+            </div>
         </div>
     </div>
     </body>

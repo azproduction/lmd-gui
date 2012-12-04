@@ -1,0 +1,66 @@
+.b-log {
+    width: 100%;
+    height: 100%;
+
+    padding-top: 71px;
+    margin-top: -71px;
+    position: relative;
+
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+}
+
+.b-log__title {
+    height: 30px;
+
+    background: #f6f6f6;
+
+    position: relative;
+    border-bottom: solid 1px #CECECE;
+
+    line-height: 30px;
+    padding-left: 10px;
+
+    color: #878B92;
+    cursor: default;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.b-log__report {
+    overflow-y: auto;
+
+    height: 100%;
+
+    padding: 0 0 5px 0px;
+
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+
+    /*box-shadow: inset 0px 7px 8px -10px #777;*/
+
+    font-size: 13px;
+}
+
+.b-log__report__result {
+    font-family: "Consolas", "Courier New";
+    padding: 0 10px 0 10px;
+    margin-bottom: 10px;
+}
+
+.b-log__report__title {
+    border-bottom: solid 1px #CECECE;
+
+    box-shadow: 0 2px 1px #ebebeb;
+
+    color: #878B92;
+    cursor: default;
+    font-size: 13px;
+    text-transform: uppercase;
+
+    padding-left: 10px;
+    margin: 10px 0 10px 0;
+
+    line-height: 16px;
+    height: 20px;
+}

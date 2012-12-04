@@ -1,0 +1,44 @@
+.b-toolbar {
+    height: 70px;
+    border-bottom: solid #cecece 1px;
+    box-shadow: 0 0 5px #cecece;
+
+    background: #f7f8f9;
+    position: relative;
+
+    z-index: 1;
+
+    background: -moz-linear-gradient(top, rgba(253, 254, 255,1) 0%, rgba(238, 239, 240,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(253, 254, 255,1)), color-stop(100%,rgba(238, 239, 240,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(253, 254, 255,1) 0%,rgba(238, 239, 240,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to bottom, rgb(253, 254, 255) 0%, rgb(238, 239, 240) 100%); /* W3C */
+}
+
+.b-toolbar__project-info {
+    height: 100%;
+    margin-right: 50%;
+    padding: 16px 20px 15px 50px;
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.b-toolbar__actions {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+
+    right: 0;
+    top: 0;
+    padding: 7px 0 0 10px;
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    white-space: nowrap;
+    overflow: hidden;
+}
