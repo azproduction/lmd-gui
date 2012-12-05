@@ -4,60 +4,58 @@
         <title></title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="index.css">
+        <!--<script src="http://yandex.st/jquery/1.8.2/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.0/backbone.localStorage-min.js"></script>-->
+
     </head>
     <body>
     <div class="b-layout">
         <div class="b-layout__sidebar">
             <div class="b-sidebar">
                 <div class="b-sidebar__content">
-                    <div class="b-landing-box i-hidden">
+                    <div class="b-landing-box">
                         <div class="b-landing-box__content">
                             <div class="b-landing-box__icon icon-folder"></div>
                             <div class="b-landing-box__message">Drag and drop an existing folder to add it to LMD</div>
                         </div>
                     </div>
-                    <div class="b-projects">
-                        <div class="b-projects__header">Projects</div>
+                    <div class="b-projects i-hidden">
+                        <div class="b-projects__header">Project</div>
                         <ul class="b-projects__list">
-                            <li class="b-projects__list__item">New Project</li>
+                            <li class="b-projects__list__item">Build Name</li>
                             <li class="b-projects__list__item b-projects__list__item_state_current">
-                                <span>New Project Focused</span>
+                                <span>Build Name Focused</span>
                                 <div class="projects__list__item__services">
                                     <span class="icon-cw"></span><span class="icon-eye"></span><span class="icon-chart-bar"></span>
                                 </div>
                             </li>
                             <li class="b-projects__list__item">
-                                <span>New Project</span>
+                                <span>Build Name</span>
                                 <div class="projects__list__item__services">
                                     <span class="icon-cw"></span><span class="icon-eye"></span><span class="icon-chart-bar"></span>
                                 </div>
                             </li>
                             <li class="b-projects__list__item">
-                                <span>New Project</span>
+                                <span>Build Name</span>
                                 <div class="projects__list__item__services">
                                     <span class="icon-eye"></span><span class="icon-chart-bar"></span>
                                 </div>
                             </li>
                             <li class="b-projects__list__item">
-                                <span>New Project</span>
+                                <span>Build Name</span>
                                 <div class="projects__list__item__services">
                                     <span class="icon-chart-bar"></span>
                                 </div>
                             </li>
-                            <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item">New Project</li>
-                            <li class="b-projects__list__item b-projects__list__item_state_current">New Project</li>
+                            <li class="b-projects__list__item">Build Name</li>
+                            <li class="b-projects__list__item">Build Name</li>
+                            <li class="b-projects__list__item b-projects__list__item_state_current">Build Name</li>
                         </ul>
-                        <div class="b-projects__header">Recent</div>
+                        <div class="b-projects__header">Project 2</div>
                         <ul class="b-projects__list">
-                            <li class="b-projects__list__item b-projects__list__item_state_current">New Project</li>
+                            <li class="b-projects__list__item b-projects__list__item_state_current">Build Name</li>
                         </ul>
                     </div>
                 </div>
@@ -68,16 +66,44 @@
             </div>
         </div>
         <div class="b-layout__content">
-            <div class="b-getting-started i-hidden">
+            <div class="b-getting-started">
                 <div class="b-getting-started__block">
                     <h1 class="b-getting-started__title">Welcome to LMD builder!</h1>
                     <p class="b-getting-started__description">Big JavaScript application cause huge startup latency.
                         A 1Mb of JavaScript initializes about ~600-3000ms! without touching any part of DOM.
                         It evals module only when they are required. LMD is inspired by AMD
                         and provides similar module interface</p>
+
+                    <h2 class="b-getting-started__subtitle">There is some important actions</h2>
+
+                    <div class="b-getting-started__help">
+                        <div class="b-getting-started__help__icon icon-help-circled"></div>
+                        <p class="b-getting-started__description">Info &ndash; to see detailed build info: build plugins, detailed modules information.</p>
+                    </div>
+                    <div class="b-getting-started__help">
+                        <div class="b-getting-started__help__icon icon-tools"></div>
+                        <p class="b-getting-started__description">Rebuild &ndash; LMD will create package using current build config. Additional build info will be provided.</p>
+                    </div>
+                    <div class="b-getting-started__help">
+                        <div class="b-getting-started__help__icon icon-eye"></div>
+                        <p class="b-getting-started__description">Watch &ndash; LMD will watch all your files declared in current build config. LMD will rebuild all project if one of them changes. This is a background process.</p>
+                    </div>
+                    <div class="b-getting-started__help">
+                        <div class="b-getting-started__help__icon icon-chart-bar"></div>
+                        <p class="b-getting-started__description">Server &ndash; to start stats server. Server provides detailed package analytics: code coverage, usage, load time, dynamic depends. This is a background process.</p>
+                    </div>
+
+                    <div class="b-getting-started__actions">
+                        <a class="b-button icon-folder b-button_theme_blue">Add Project</a> <a class="b-button icon-help-circled">Show Help</a>
+                    </div>
+                </div>
+
+                <div class="b-navigate b-navigate_type_left">
+                    <div class="b-navigate__text">There will be all your projects and builds</div>
+                    <img src="images/thin-arrow.svg">
                 </div>
             </div>
-            <div class="b-toolbar">
+            <div class="b-toolbar i-hidden">
                 <div class="b-toolbar__project-info">
                     <div class="b-project-info">
                         <div class="b-project-info__title">
@@ -106,8 +132,12 @@
                         <div class="b-action-button__title">Server</div>
                     </div>
                 </div>
+                <div class="b-navigate b-navigate_type_top">
+                    <div class="b-navigate__text">Use these buttons to make your build rock!</div>
+                    <img src="images/thin-arrow-up.svg">
+                </div>
             </div>
-            <div class="b-log">
+            <div class="b-log i-hidden">
                 <div class="b-log__report">
 <div class="b-log__report__title">lmd info</div>
 <pre class="b-log__report__result">

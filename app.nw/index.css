@@ -47,6 +47,68 @@
 
 .b-action-button:hover .b-action-button__title {
     text-decoration: underline;
+}.b-button {
+    border-radius: 5px;
+    line-height: 200%;
+    font-size: 14px;
+    padding: 5px 12px;
+    margin: 10px;
+
+    background: -moz-linear-gradient(top, rgba(253, 254, 255,1) 0%, rgba(238, 239, 240,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(253, 254, 255,1)), color-stop(100%,rgba(238, 239, 240,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(253, 254, 255,1) 0%,rgba(238, 239, 240,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to bottom, rgb(253, 254, 255) 0%, rgb(238, 239, 240) 100%); /* W3C */
+    border: solid 1px #999;
+    box-shadow: 0 2px 5px -3px #999, 0 0 2px #fff inset;
+
+    color: #333;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.b-button_theme_blue {
+    background: -moz-linear-gradient(top, rgba(117,170,221,1) 0%, rgba(64,126,200,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(117,170,221,1)), color-stop(100%,rgba(64,126,200,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(117,170,221,1) 0%,rgba(64,126,200,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to bottom, rgba(117,170,221,1) 0%,rgba(64,126,200,1) 100%); /* W3C */
+    border: solid 1px #376bab;
+    box-shadow: 0 2px 7px -3px #555;
+
+    color: #fff;
+
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.b-button_theme_blue:hover {
+    -webkit-animation: burn-button 2s infinite linear;
+       -moz-animation: burn-button 2s infinite linear;
+            animation: burn-button 2s infinite linear;
+}
+
+@-webkit-keyframes burn-button {
+	0% { box-shadow: 0 0 5px #75AADD; }
+	50% { box-shadow: 0 0 10px #407EC8; }
+	100% { box-shadow: 0 0 5px #75AADD; }
+}
+
+@-moz-keyframes burn-button {
+	0% { box-shadow: 0 0 5px #75AADD; }
+	50% { box-shadow: 0 0 10px #407EC8; }
+	100% { box-shadow: 0 0 5px #75AADD; }
+}
+
+@keyframes burn-button {
+	0% { box-shadow: 0 0 5px #75AADD; }
+	50% { box-shadow: 0 0 10px #407EC8; }
+	100% { box-shadow: 0 0 5px #75AADD; }
+}
+
+@media all and (max-width: 800px) {
+    .b-button_theme_blue {
+        font-size: 14px;
+        padding: 5px 12px;
+    }
 }.b-getting-started {
     width: 100%;
     height: 100%;
@@ -55,6 +117,8 @@
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(244, 244, 244,1)), color-stop(100%,rgba(255, 255, 255,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, rgba(244, 244, 244,1) 0%,rgba(255, 255, 255,1) 100%); /* Chrome10+,Safari5.1+ */
     background: linear-gradient(to bottom, rgb(244, 244, 244) 0%,rgba(255, 255, 255,1) 100%); /* W3C */
+
+    overflow-y: auto;
 }
 
 .b-getting-started__block {
@@ -72,10 +136,62 @@
     margin-bottom: 10px;
 }
 
+.b-getting-started__subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
 .b-getting-started__description {
     font-size: 13px;
     color: #777;
-}.b-landing-box,
+}
+
+.b-getting-started p {
+    margin-bottom: 20px;
+}
+
+.b-getting-started__help {
+    margin-bottom: 10px;
+    width: 70%;
+    text-align: left;
+    margin-left: 15%;
+    margin-bottom: 10px;
+}
+
+.b-getting-started__help:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+.b-getting-started__help__icon {
+    float: left;
+    font-size: 32px;
+    color: #357ac8;
+
+    margin-right: 10px;
+}
+
+.b-getting-started__help .b-getting-started__description {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.b-getting-started__actions {
+    margin: 30px 0 150px 0;
+}
+
+@media all and (max-width: 800px) {
+    .b-getting-started__block {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+.b-landing-box,
 .b-landing-box__content {
     padding: 5px;
     height: 100%;
@@ -218,7 +334,34 @@
 
 .b-menu-button:hover {
     background: rgba(0,0,0,.1);
-}.b-project-info {
+}.b-navigate {
+    font-size: 12px;
+    color: #555;
+}
+
+.b-navigate__text {
+    margin-left: 70px;
+    width: 150px;
+    text-align: center;
+}
+
+.b-navigate_type_left {
+    top: 60%;
+    position: absolute;
+}
+
+.b-navigate_type_top {
+    left: 60%;
+    position: absolute;
+}
+
+.b-navigate_type_top .b-navigate__text {
+    margin-left: 100px;
+    top: 85px;
+
+    position: absolute;
+}
+.b-project-info {
 
 }
 

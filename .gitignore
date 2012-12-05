@@ -4,6 +4,7 @@ app.nw/node_modules
 win/
 linux/
 npm-debug.log
+.DS_Store
 *.7z
 *.tar.gz
 *.zip
