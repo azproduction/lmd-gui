@@ -31,3 +31,7 @@
     font-size: 50px;
     margin-top: -50px;
 }
+
+.b-landing-box_state_dragover .b-landing-box__content {
+    border-color: #407EC8;
+}
