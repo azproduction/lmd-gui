@@ -47,7 +47,12 @@
 
 .b-action-button:hover .b-action-button__title {
     text-decoration: underline;
-}.b-button {
+}
+.b-build-info,
+.b-build-info__item {
+    height: 100%;
+}
+.b-button {
     border-radius: 5px;
     line-height: 200%;
     font-size: 14px;
@@ -109,7 +114,8 @@
         font-size: 14px;
         padding: 5px 12px;
     }
-}.b-getting-started {
+}
+.b-getting-started {
     width: 100%;
     height: 100%;
 
@@ -191,6 +197,7 @@
         margin-left: 5%;
     }
 }
+
 .b-landing-box,
 .b-landing-box__content {
     padding: 5px;
@@ -227,7 +234,8 @@
 
 .b-landing-box_state_dragover .b-landing-box__content {
     border-color: #407EC8;
-}body, html {
+}
+body, html {
     height: 100%;
 }
 
@@ -252,7 +260,8 @@
     font-size: 11px;
     position: absolute;
     opacity: .3;
-}*/.b-log {
+}*/
+.b-log {
     width: 100%;
     height: 100%;
 
@@ -317,7 +326,8 @@
 
     line-height: 16px;
     height: 20px;
-}.b-menu-button {
+}
+.b-menu-button {
     float: left;
 
     height: 100%;
@@ -338,7 +348,8 @@
 
 .b-menu-button:hover {
     background: rgba(0,0,0,.1);
-}.b-navigate {
+}
+.b-navigate {
     font-size: 12px;
     color: #555;
 }
@@ -365,6 +376,7 @@
 
     position: absolute;
 }
+
 .b-project-info {
 
 }
@@ -385,7 +397,8 @@
 .b-project-info__location {
     font-size: 13px;
     color: #777;
-}.b-projects {
+}
+.b-projects {
     height: 100%;
     position: relative;
     padding-top: 8px;
@@ -452,7 +465,8 @@
     color: #fff;
     text-shadow: 0 -1px 0 #333;
     font-size: 11px;
-}.b-sidebar {
+}
+.b-sidebar {
     height: 100%;
 }
 
@@ -478,7 +492,8 @@
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(246,247,249,1)), color-stop(50%,rgba(235,238,241,1)), color-stop(51%,rgba(228,232,237,1)), color-stop(100%,rgba(217,223,230,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, rgba(246,247,249,1) 0%,rgba(235,238,241,1) 50%,rgba(228,232,237,1) 51%,rgba(217,223,230,1) 100%);
     background: linear-gradient(to bottom, rgba(246,247,249,1) 0%,rgba(235,238,241,1) 50%,rgba(228,232,237,1) 51%,rgba(217,223,230,1) 100%);
-}.b-toolbar {
+}
+.b-toolbar {
     height: 70px;
     border-bottom: solid #cecece 1px;
     box-shadow: 0 0 5px #cecece;
@@ -521,8 +536,7 @@
 
     white-space: nowrap;
     overflow: hidden;
-}@charset "UTF-8";
-
+}
 @font-face {
     font-family: 'fontello';
     src: url("font/fontello.eot");
@@ -560,12 +574,14 @@
 .icon-help-circled:before { content: '\e704'; } /* '' */
 .icon-eye:before { content: '\e70a'; } /* '' */
 .icon-folder:before { content: '📁'; } /* '\1f4c1' */
-.icon-chart-bar:before { content: '📊'; } /* '\1f4ca' *//*
+.icon-chart-bar:before { content: '📊'; } /* '\1f4ca' */
+/*
 Copyright (c) 2011, Yahoo! Inc. All rights reserved.
 Code licensed under the BSD License:
 http://developer.yahoo.com/yui/license.html
 version: 2.9.0
 */
-html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}del,ins{text-decoration:none}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:baseline}sub{vertical-align:baseline}legend{color:#000}.i-hidden {
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit}del,ins{text-decoration:none}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:baseline}sub{vertical-align:baseline}legend{color:#000}
+.i-hidden {
     display: none;
 }

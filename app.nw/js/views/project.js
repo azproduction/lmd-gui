@@ -1,3 +1,4 @@
+"use strict";
 var $ = require('$'),
     _ = require('_'),
     Backbone = require('Backbone'),
@@ -30,7 +31,9 @@ var TodoView = Backbone.View.extend({
     },
 
     renderOneBuild: function (build) {
-        if (build.get('projectId') !== this.model.id) return;
+        if (build.get('projectId') !== this.model.id) {
+            return;
+        }
 
         var view = new BuildView({
             model: build

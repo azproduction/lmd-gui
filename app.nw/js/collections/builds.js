@@ -1,3 +1,4 @@
+"use strict";
 var _ = require('_'),
     Backbone = require('Backbone'),
     BuildModel = require('BuildModel');
@@ -14,5 +15,16 @@ var BuildsCollection = Backbone.Collection.extend({
 });
 
 var builds = new BuildsCollection();
+
+builds.on('reset', function () {
+    // disable isRebuilding
+    builds.each(function (build) {
+        if (build.get('isBuilding')) {
+            build.save({
+                isBuilding: false
+            });
+        }
+    });
+});
 
 module.exports = builds;

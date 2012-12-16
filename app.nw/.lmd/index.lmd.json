@@ -6,9 +6,10 @@
 
         "$": "@jQuery",
 
-        "SidebarView": "views/sidebar.js",
+        "AppView": "views/app.js",
         "ProjectView": "views/project.js",
         "BuildView": "views/build.js",
+        "BuildInfoView": "views/buildInfo.js",
 
         "ProjectModel": "models/project.js",
         "BuildModel": "models/build.js",
@@ -17,7 +18,8 @@
         "BuildsCollection": "collections/builds.js",
 
         "ProjectTemplate": "templates/project.html",
-        "BuildTemplate": "templates/build.html"
+        "BuildTemplate": "templates/build.html",
+        "BuildInfoTemplate": "templates/buildInfo.html"
     },
     "main": "main",
 

@@ -22,43 +22,7 @@
                             <div class="b-landing-box__message">Drag and drop an existing folder to add it to LMD</div>
                         </div>
                     </div>
-                    <div class="b-projects i-hidden">
-                        <div class="b-projects__header">Project</div>
-                        <ul class="b-projects__list">
-                            <li class="b-projects__list__item">Build Name</li>
-                            <li class="b-projects__list__item b-projects__list__item_state_current">
-                                <span>Build Name Focused</span>
-                                <div class="projects__list__item__services">
-                                    <span class="icon-cw"></span><span class="icon-eye"></span><span class="icon-chart-bar"></span>
-                                </div>
-                            </li>
-                            <li class="b-projects__list__item">
-                                <span>Build Name</span>
-                                <div class="projects__list__item__services">
-                                    <span class="icon-cw"></span><span class="icon-eye"></span><span class="icon-chart-bar"></span>
-                                </div>
-                            </li>
-                            <li class="b-projects__list__item">
-                                <span>Build Name</span>
-                                <div class="projects__list__item__services">
-                                    <span class="icon-eye"></span><span class="icon-chart-bar"></span>
-                                </div>
-                            </li>
-                            <li class="b-projects__list__item">
-                                <span>Build Name</span>
-                                <div class="projects__list__item__services">
-                                    <span class="icon-chart-bar"></span>
-                                </div>
-                            </li>
-                            <li class="b-projects__list__item">Build Name</li>
-                            <li class="b-projects__list__item">Build Name</li>
-                            <li class="b-projects__list__item b-projects__list__item_state_current">Build Name</li>
-                        </ul>
-                        <div class="b-projects__header">Project 2</div>
-                        <ul class="b-projects__list">
-                            <li class="b-projects__list__item b-projects__list__item_state_current">Build Name</li>
-                        </ul>
-                    </div>
+                    <div class="b-projects i-hidden"></div>
                 </div>
                 <div class="b-sidebar__menu">
                     <div class="b-menu-button js-add-project">+</div>
@@ -95,7 +59,7 @@
                     </div>
 
                     <div class="b-getting-started__actions">
-                        <a class="b-button icon-folder b-button_theme_blue">Add Project</a> <a class="b-button icon-help-circled">Show Help</a>
+                        <a class="b-button icon-folder b-button_theme_blue js-add-project">Add Project</a> <a class="b-button icon-help-circled js-help">Show Help</a>
                     </div>
                 </div>
 
@@ -104,94 +68,7 @@
                     <img src="images/thin-arrow.svg">
                 </div>
             </div>
-            <div class="b-toolbar i-hidden">
-                <div class="b-toolbar__project-info">
-                    <div class="b-project-info">
-                        <div class="b-project-info__title">
-                            <a class="b-project-info__link" href="#">Pewpew</a>
-                        </div>
-                        <div class="b-project-info__location">
-                            <a class="b-project-info__link" href="#">/Users/azproduction/Documents/my/lmd-gui</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="b-toolbar__actions">
-                    <div class="b-action-button">
-                        <div class="b-action-button__icon icon-help-circled"></div>
-                        <div class="b-action-button__title">Info</div>
-                    </div>
-                    <div class="b-action-button">
-                        <div class="b-action-button__icon icon-tools"></div>
-                        <div class="b-action-button__title">Rebuild</div>
-                    </div>
-                    <div class="b-action-button b-action-button_state_active">
-                        <div class="b-action-button__icon icon-eye"></div>
-                        <div class="b-action-button__title">Watch</div>
-                    </div>
-                    <div class="b-action-button b-action-button_state_active">
-                        <div class="b-action-button__icon icon-chart-bar"></div>
-                        <div class="b-action-button__title">Server</div>
-                    </div>
-                </div>
-                <div class="b-navigate b-navigate_type_top">
-                    <div class="b-navigate__text">Use these buttons to make your build rock!</div>
-                    <img src="images/thin-arrow-up.svg">
-                </div>
-            </div>
-            <div class="b-log i-hidden">
-                <div class="b-log__report">
-<div class="b-log__report__title">lmd info</div>
-<pre class="b-log__report__result">
-info:
-info:    LMD Package `index` (.lmd/index.lmd.json)
-info:
-info:    Modules (1)
-info:
-info:    name depends type  lazy greedy coverage sandbox
-info:    main ✘       plain ✘    ✘      ✘        ✘
-info:
-info:    Module Paths, Depends and Features
-info:
-info:    main  <- /Users/azproduction/Documents/my/lmd-gui/app.nw/js/main.js
-info:
-info:    Flags
-info:
-info:    ie  ✘
-info:
-info:    Paths
-info:
-info:    root      /Users/azproduction/Documents/my/lmd-gui/app.nw/js
-info:    output    /Users/azproduction/Documents/my/lmd-gui/app.nw/index.lmd.js
-info:    www_root  ✘
-info:
-</pre>
-<div class="b-log__report__title">lmd info</div>
-<pre class="b-log__report__result">
-info:
-info:    LMD Package `index` (.lmd/index.lmd.json)
-info:
-info:    Modules (1)
-info:
-info:    name depends type  lazy greedy coverage sandbox
-info:    main ✘       plain ✘    ✘      ✘        ✘
-info:
-info:    Module Paths, Depends and Features
-info:
-info:    main  <- /Users/azproduction/Documents/my/lmd-gui/app.nw/js/main.js
-info:
-info:    Flags
-info:
-info:    ie  ✘
-info:
-info:    Paths
-info:
-info:    root      /Users/azproduction/Documents/my/lmd-gui/app.nw/js
-info:    output    /Users/azproduction/Documents/my/lmd-gui/app.nw/index.lmd.js
-info:    www_root  ✘
-info:
-</pre>
-                </div>
-            </div>
+            <div class="b-build-info i-hidden"></div>
         </div>
     </div>
     </body>

@@ -1,6 +1,7 @@
 .idea/
 app.nw/app.nw
 app.nw/node_modules
+node_modules/
 win/
 linux/
 npm-debug.log

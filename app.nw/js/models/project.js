@@ -1,3 +1,4 @@
+"use strict";
 var _ = require('_'),
     Backbone = require('Backbone');
 

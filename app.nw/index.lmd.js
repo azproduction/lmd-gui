@@ -5,6 +5,8 @@
         },
         
         
+        
+        
         local_undefined,
         /**
          * @param {String} moduleName module name or path to file
@@ -130,6 +132,7 @@
             
             
             
+            
 
             on: lmd_on,
             trigger: lmd_trigger,
@@ -204,35 +207,34 @@ sb.on('stats:before-require-count', function (moduleName, module) {
 
     main(lmd_trigger('lmd-register:decorate-require', "main", require)[1], output.exports, output);
 })/*DO NOT ADD ; !*/(this,(function (require, exports, module) { /* wrapped by builder */
+"use strict";
 var $ = require('$'),
     ProjectsCollection = require('ProjectsCollection'),
     BuildsCollection = require('BuildsCollection'),
 
-    SidebarView = require('SidebarView');
+    AppView = require('AppView');
 
 $(function () {
     // Initialize the application view
-    new SidebarView();
-    //new LandingBoxView();
-    //new ProjectsView();
+    new AppView();
 
     ProjectsCollection.fetch();
     BuildsCollection.fetch();
 });
 }),{
 "$": "@jQuery",
-"SidebarView": (function (require, exports, module) { /* wrapped by builder */
+"AppView": (function (require, exports, module) { /* wrapped by builder */
+"use strict";
 var $ = require('$'),
     _ = require('_'),
     Backbone = require('Backbone'),
     ProjectsCollection = require('ProjectsCollection'),
     BuildsCollection = require('BuildsCollection'),
-    ProjectView = require('ProjectView');
+    ProjectView = require('ProjectView'),
+    BuildInfoView = require('BuildInfoView');
 
-var SidebarView = Backbone.View.extend({
-    el: '.b-sidebar',
-
-    // template: _.template( statsTemplate ),
+var AppView = Backbone.View.extend({
+    el: '.b-layout',
 
     events: {
         'click .js-add-project':    'addProject',
@@ -242,22 +244,49 @@ var SidebarView = Backbone.View.extend({
     initialize: function () {
         this.$landingBox = this.$el.find('.b-landing-box');
         this.$projects = this.$el.find('.b-projects');
+        this.$buildInfo = this.$el.find('.b-build-info');
+        this.$buildInfo.empty();
+        this.$gettingStarted = this.$el.find('.b-getting-started');
 
-        ProjectsCollection.on('reset remove add destroy', this.updateVisibility, this);
+        this.renderedBuilds = {};
+
+        ProjectsCollection.on('reset remove add', this.updateVisibility, this);
         ProjectsCollection.on('add', this.addOne, this);
         ProjectsCollection.on('reset', this.addAll, this);
+
+        BuildsCollection.on('change:isCurrent', this.addBuildInfo, this);
+        BuildsCollection.on('reset', function () {
+            // looking for current build/last selected
+            var currentBuild = BuildsCollection.where({isCurrent: true});
+            if (currentBuild[0]) {
+                this.addBuildInfo(BuildsCollection.get(currentBuild[0].id));
+            }
+
+            // if no active builds - show getting started
+            this.toggleBuildInfo(!!currentBuild[0]);
+        }, this);
+
+        BuildsCollection.on('destroy', function (build) {
+            if (build.get('isCurrent')) {
+                this.toggleBuildInfo(false);
+            }
+        }, this);
     },
 
     addProject: function () {
         var project = ProjectsCollection.create({
             name: Math.random() + '',
-            location: Math.random() + '',
+            location: Math.random() + '/' + Math.random(),
             order: ProjectsCollection.nextOrder()
         });
 
         _(2).times(function () {
             this.addBuildTo(project.id);
         }, this);
+    },
+
+    removeSelectedProject: function () {
+        console.log('removeSelectedProject');
     },
 
     addBuildTo: function (projectId) {
@@ -272,13 +301,11 @@ var SidebarView = Backbone.View.extend({
         build.focus();
     },
 
-    removeSelectedProject: function () {
-        console.log('removeSelectedProject');
-    },
-
     updateVisibility: function () {
         this.$landingBox.toggleClass('i-hidden', !!ProjectsCollection.length);
         this.$projects.toggleClass('i-hidden', !ProjectsCollection.length);
+
+        this.toggleBuildInfo(!!ProjectsCollection.length);
     },
 
     addOne: function(project) {
@@ -292,13 +319,34 @@ var SidebarView = Backbone.View.extend({
     addAll: function() {
         this.$projects.empty();
         ProjectsCollection.each(this.addOne, this);
+    },
+
+    addBuildInfo: function (build) {
+        this.toggleBuildInfo(true);
+        // if already rendered do not add twice
+        if (this.renderedBuilds[build.id]) {
+            return;
+        }
+
+        var view = new BuildInfoView({
+            model: build
+        });
+
+        this.renderedBuilds[build.id] = true;
+        this.$buildInfo.append(view.render().el);
+    },
+
+    toggleBuildInfo: function (isShow) {
+        this.$buildInfo.toggleClass('i-hidden', !isShow);
+        this.$gettingStarted.toggleClass('i-hidden', isShow);
     }
 });
 
-module.exports = SidebarView;
+module.exports = AppView;
 
 }),
 "ProjectView": (function (require, exports, module) { /* wrapped by builder */
+"use strict";
 var $ = require('$'),
     _ = require('_'),
     Backbone = require('Backbone'),
@@ -331,7 +379,9 @@ var TodoView = Backbone.View.extend({
     },
 
     renderOneBuild: function (build) {
-        if (build.get('projectId') !== this.model.id) return;
+        if (build.get('projectId') !== this.model.id) {
+            return;
+        }
 
         var view = new BuildView({
             model: build
@@ -355,6 +405,7 @@ module.exports =  TodoView;
 
 }),
 "BuildView": (function (require, exports, module) { /* wrapped by builder */
+"use strict";
 var $ = require('$'),
     _ = require('_'),
     Backbone = require('Backbone'),
@@ -362,6 +413,7 @@ var $ = require('$'),
 
 var BuildView = Backbone.View.extend({
     tagName: 'li',
+    className: 'b-projects__list__item',
 
     template: _.template(buildTemplate),
 
@@ -370,9 +422,13 @@ var BuildView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.$el.addClass('b-projects__list__item');
         this.model.on('change', this.render, this);
         this.model.on('destroy', this.remove, this);
+
+        // TODO Move out of this View
+        this.model.on('change:isBuilding', this.lmdRebuild, this);
+        this.model.on('change:isWatching', this.lmdSetWatch, this);
+        this.model.on('change:isStats', this.lmdSetStats, this);
     },
 
     render: function () {
@@ -385,6 +441,144 @@ var BuildView = Backbone.View.extend({
 
     focusBuild: function () {
         this.model.focus();
+    },
+
+    // TODO Move out of this View
+    lmdRebuild: function (build) {
+        if (!build.get('isBuilding')) {
+            return;
+        }
+
+        setTimeout(function () {
+            build.save({
+                isBuilding: false
+            });
+        }, 1000);
+    },
+
+    // TODO Move out of this View
+    lmdSetWatch: function () {
+        if (this.model.get('isWatching')) {
+            this.lmdStartWatch();
+        } else {
+            this.lmdStopWatch();
+        }
+    },
+
+    // TODO Move out of this View
+    lmdStartWatch: function () {
+        console.log('lmdStartWatch');
+    },
+
+    // TODO Move out of this View
+    lmdStopWatch: function () {
+        console.log('lmdStopWatch');
+    },
+
+    // TODO Move out of this View
+    lmdSetStats: function (build) {
+        if (this.model.get('isStats')) {
+            this.lmdStartStats();
+        } else {
+            this.lmdStopStats();
+        }
+    },
+
+    // TODO Move out of this View
+    lmdStartStats: function () {
+        console.log('lmdStartStats');
+    },
+
+    // TODO Move out of this View
+    lmdStopStats: function () {
+        console.log('lmdStopStats');
+    }
+});
+
+module.exports =  BuildView;
+
+}),
+"BuildInfoView": (function (require, exports, module) { /* wrapped by builder */
+"use strict";
+var $ = require('$'),
+    _ = require('_'),
+    Backbone = require('Backbone'),
+    buildInfoTemplate = require('BuildInfoTemplate'),
+    ProjectsCollection = require('ProjectsCollection');
+
+var BuildView = Backbone.View.extend({
+    tagName: 'div',
+    className: 'b-build-info__item',
+
+    template: _.template(buildInfoTemplate),
+
+    events: {
+        'click .js-info':       'info',
+        'click .js-rebuild':    'rebuild',
+        'click .js-watch':      'toggleWatch',
+        'click .js-server':     'toggleServer'
+    },
+
+    initialize: function () {
+        this.model.on('change', this.updateState, this);
+        this.model.on('destroy', this.remove, this);
+    },
+
+    render: function () {
+        var data = this.model.toJSON();
+        data.project = ProjectsCollection.get(this.model.get('projectId')).toJSON();
+        this.$el.html(this.template(data));
+
+        this.$rebuild = this.$el.find('.js-rebuild');
+        this.$watch = this.$el.find('.js-watch');
+        this.$server = this.$el.find('.js-server');
+
+        this.updateState();
+        return this;
+    },
+
+    updateState: function () {
+        var isCurrent = this.model.get('isCurrent'),
+            isWatching = this.model.get('isWatching'),
+            isBuilding = this.model.get('isBuilding'),
+            isStats = this.model.get('isStats');
+
+        this.$el.toggleClass('i-hidden', !isCurrent);
+        this.$watch.toggleClass('b-action-button_state_active', isWatching);
+        this.$server.toggleClass('b-action-button_state_active', isStats);
+        this.$rebuild.toggleClass('b-action-button_state_active', isBuilding);
+    },
+
+    info: function () {
+        console.log(this.model.id, 'info');
+    },
+
+    rebuild: function () {
+        var self = this,
+            isBuilding = this.model.get('isBuilding');
+
+        if (isBuilding) {
+            return;
+        }
+
+        // mock rebuilding
+        this.model.save({
+            isBuilding: true
+        });
+    },
+
+    toggleWatch: function () {
+        var isWatching = this.model.get('isWatching');
+        this.model.save({
+            isWatching: !isWatching
+        });
+    },
+
+    toggleServer: function () {
+        var isStats = this.model.get('isStats');
+        this.model.save({
+            isStats: !isStats
+        });
     }
 });
 
@@ -392,6 +586,7 @@ module.exports =  BuildView;
 
 }),
 "ProjectModel": (function (require, exports, module) { /* wrapped by builder */
+"use strict";
 var _ = require('_'),
     Backbone = require('Backbone');
 
@@ -411,6 +606,7 @@ module.exports = ProjectModel;
 
 }),
 "BuildModel": (function (require, exports, module) { /* wrapped by builder */
+"use strict";
 var _ = require('_'),
     Backbone = require('Backbone');
 
@@ -451,6 +647,7 @@ var BuildModel = Backbone.Model.extend({
 module.exports = BuildModel;
 }),
 "ProjectsCollection": (function (require, exports, module) { /* wrapped by builder */
+"use strict";
 var _ = require('_'),
     Backbone = require('Backbone'),
     ProjectModel = require('ProjectModel'),
@@ -483,6 +680,7 @@ module.exports = projects;
 
 }),
 "BuildsCollection": (function (require, exports, module) { /* wrapped by builder */
+"use strict";
 var _ = require('_'),
     Backbone = require('Backbone'),
     BuildModel = require('BuildModel');
@@ -500,9 +698,21 @@ var BuildsCollection = Backbone.Collection.extend({
 
 var builds = new BuildsCollection();
 
+builds.on('reset', function () {
+    // disable isRebuilding
+    builds.each(function (build) {
+        if (build.get('isBuilding')) {
+            build.save({
+                isBuilding: false
+            });
+        }
+    });
+});
+
 module.exports = builds;
 
 }),
 "ProjectTemplate": "<div class=\"b-projects__header\">\n    <span><%- name %></span>\n    <div class=\"b-projects__eject js-eject icon-eject\" title=\"Eject project\"></div>\n</div>\n<ul class=\"b-projects__list\"></ul>",
-"BuildTemplate": "<span><%- name %></span>\n<div class=\"projects__list__item__services\">\n    <% if ( isBuilding ) { %><span class=\"icon-cw\"></span><% } %><% if ( isWatching ) { %><span class=\"icon-eye\"></span><% } %><% if ( isStats ) { %><span class=\"icon-chart-bar\"></span><% } %>\n</div>"
+"BuildTemplate": "<span><%- name %></span>\n<div class=\"projects__list__item__services\">\n    <% if ( isBuilding ) { %><span class=\"icon-cw\"></span><% } %><% if ( isWatching ) { %><span class=\"icon-eye\"></span><% } %><% if ( isStats ) { %><span class=\"icon-chart-bar\"></span><% } %>\n</div>",
+"BuildInfoTemplate": "<div class=\"b-toolbar\">\n    <div class=\"b-toolbar__project-info\">\n        <div class=\"b-project-info\">\n            <div class=\"b-project-info__title\">\n                <a class=\"b-project-info__link\" href=\"#\"><%- name %></a>\n            </div>\n            <div class=\"b-project-info__location\">\n                <a class=\"b-project-info__link\" href=\"#\"><%- project.location %></a>\n            </div>\n        </div>\n    </div>\n    <div class=\"b-toolbar__actions\">\n        <div class=\"b-action-button js-info\">\n            <div class=\"b-action-button__icon icon-help-circled\"></div>\n            <div class=\"b-action-button__title\">Info</div>\n        </div>\n        <div class=\"b-action-button js-rebuild\">\n            <div class=\"b-action-button__icon icon-tools\"></div>\n            <div class=\"b-action-button__title\">Rebuild</div>\n        </div>\n        <div class=\"b-action-button js-watch b-action-button_state_active\">\n            <div class=\"b-action-button__icon icon-eye\"></div>\n            <div class=\"b-action-button__title\">Watch</div>\n        </div>\n        <div class=\"b-action-button js-server b-action-button_state_active\">\n            <div class=\"b-action-button__icon icon-chart-bar\"></div>\n            <div class=\"b-action-button__title\">Server</div>\n        </div>\n    </div>\n    <div class=\"b-navigate b-navigate_type_top\">\n        <div class=\"b-navigate__text\">Use these buttons to make your build rock!</div>\n        <img src=\"images/thin-arrow-up.svg\">\n    </div>\n</div>\n<div class=\"b-log\">\n    <div class=\"b-log__report\">\n        <div class=\"b-log__report__title\">lmd info</div>\n        <pre class=\"b-log__report__result\">\ninfo:\ninfo:    LMD Package `index` (.lmd/index.lmd.json)\ninfo:\ninfo:    Modules (1)\ninfo:\ninfo:    name depends type  lazy greedy coverage sandbox\ninfo:    main ✘       plain ✘    ✘      ✘        ✘\ninfo:\ninfo:    Module Paths, Depends and Features\ninfo:\ninfo:    main  <- /Users/azproduction/Documents/my/lmd-gui/app.nw/js/main.js\ninfo:\ninfo:    Flags\ninfo:\ninfo:    ie  ✘\ninfo:\ninfo:    Paths\ninfo:\ninfo:    root      /Users/azproduction/Documents/my/lmd-gui/app.nw/js\ninfo:    output    /Users/azproduction/Documents/my/lmd-gui/app.nw/index.lmd.js\ninfo:    www_root  ✘\ninfo:\n</pre>\n        <div class=\"b-log__report__title\">lmd info</div>\n        <pre class=\"b-log__report__result\">\ninfo:\ninfo:    LMD Package `index` (.lmd/index.lmd.json)\ninfo:\ninfo:    Modules (1)\ninfo:\ninfo:    name depends type  lazy greedy coverage sandbox\ninfo:    main ✘       plain ✘    ✘      ✘        ✘\ninfo:\ninfo:    Module Paths, Depends and Features\ninfo:\ninfo:    main  <- /Users/azproduction/Documents/my/lmd-gui/app.nw/js/main.js\ninfo:\ninfo:    Flags\ninfo:\ninfo:    ie  ✘\ninfo:\ninfo:    Paths\ninfo:\ninfo:    root      /Users/azproduction/Documents/my/lmd-gui/app.nw/js\ninfo:    output    /Users/azproduction/Documents/my/lmd-gui/app.nw/index.lmd.js\ninfo:    www_root  ✘\ninfo:\n</pre>\n    </div>\n</div>"
 },{})
