@@ -19,6 +19,17 @@
     cursor: default;
 }
 
+.b-projects__eject {
+    float: right;
+    font-size: 120%;
+    line-height: 100%;
+    margin-right: 2px;
+}
+
+.b-projects__eject:hover {
+    color: #111;
+}
+
 .b-projects__list {
     margin-bottom: 5px;
 }

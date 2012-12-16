@@ -1,0 +1,112 @@
+{
+  "name": "",
+  "glyphs": [
+    {
+      "search": [
+        "eject",
+        "player"
+      ],
+      "code": 9167,
+      "from": 9167,
+      "uid": "ygvgohzaooew2l8favz2xu2xi59w1hoo",
+      "css": "eject",
+      "orig_css": "eject",
+      "orig_code": 9167,
+      "src": "typicons"
+    },
+    {
+      "search": [
+        "tools"
+      ],
+      "code": 9874,
+      "uid": "6a7b9d4863bb7e6c79e9457a72d689b6",
+      "css": "tools",
+      "orig_css": "tools",
+      "orig_code": 9874,
+      "src": "entypo",
+      "from": 9874
+    },
+    {
+      "search": [
+        "close",
+        "cancel",
+        "reject"
+      ],
+      "code": 10005,
+      "from": 10005,
+      "uid": "1dq4tek4k8ea7zlj4kc3w83itnutaxg5",
+      "css": "cancel",
+      "orig_css": "cancel",
+      "orig_code": 10005,
+      "src": "typicons"
+    },
+    {
+      "search": [
+        "arrow",
+        "reload",
+        "redo",
+        "repeat"
+      ],
+      "code": 10227,
+      "uid": "5889f24614ead600acce1af6a861b97c",
+      "file": "reload",
+      "css": "cw",
+      "orig_css": "cw",
+      "orig_code": 10227,
+      "src": "iconic",
+      "from": 10227
+    },
+    {
+      "search": [
+        "help",
+        "question"
+      ],
+      "code": 59140,
+      "uid": "de9a631a7d18106aea1c89ba51b1990a",
+      "css": "help-circled",
+      "orig_css": "help-circled",
+      "orig_code": 59140,
+      "src": "entypo",
+      "from": 59140
+    },
+    {
+      "search": [
+        "eye",
+        "subscribe"
+      ],
+      "code": 59146,
+      "from": 59146,
+      "uid": "k7sao112253txym1egnte7822irbyphe",
+      "css": "eye",
+      "orig_css": "eye",
+      "orig_code": 59146,
+      "src": "typicons"
+    },
+    {
+      "search": [
+        "folder"
+      ],
+      "code": 128193,
+      "uid": "0ccb084ddeeae372673793ed0b45bb4a",
+      "css": "folder",
+      "orig_css": "folder",
+      "orig_code": 128193,
+      "src": "entypo",
+      "from": 128193
+    },
+    {
+      "search": [
+        "chart",
+        "bar",
+        "diagram"
+      ],
+      "code": 128202,
+      "from": 128202,
+      "uid": "5v7h140x5zz1acnzfzo36flbwar5tujm",
+      "css": "chart-bar",
+      "orig_css": "chart-bar",
+      "orig_code": 128202,
+      "src": "typicons"
+    }
+  ]
+}

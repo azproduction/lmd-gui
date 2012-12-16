@@ -406,6 +406,17 @@
     cursor: default;
 }
 
+.b-projects__eject {
+    float: right;
+    font-size: 120%;
+    line-height: 100%;
+    margin-right: 2px;
+}
+
+.b-projects__eject:hover {
+    color: #111;
+}
+
 .b-projects__list {
     margin-bottom: 5px;
 }
@@ -513,36 +524,38 @@
 }@charset "UTF-8";
 
 @font-face {
-  font-family: 'fontello';
-  src: url("font/fontello.eot");
-  src: url("font/fontello.eot") format('embedded-opentype'), url("font/fontello.woff") format('woff'), url("font/fontello.ttf") format('truetype'), url("../font/fontello.svg#fontello") format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'fontello';
+    src: url("font/fontello.eot");
+    src: url("font/fontello.eot?#iefix") format('embedded-opentype'), url("font/fontello.woff") format('woff'), url("font/fontello.ttf") format('truetype'), url("font/fontello.svg#fontello") format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  font-family: 'fontello';
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: 0.2em;
-  text-align: center;
-  opacity: 0.8;
-/* fix buttons height, for twitter bootstrap */
-  line-height: 1em;
-/* Animation center compensation - magrins should be symmetric */
-/* remove if not needed */
-  margin-left: 0.2em;
-/* you can be more comfortable with increased icons size */
-/* font-size: 120%; */
-/* Uncomment for 3D effect */
-/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+    font-family: 'fontello';
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: 0.2em;
+    text-align: center;
+    opacity: 0.8;
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+    /* Animation center compensation - magrins should be symmetric */
+    /* remove if not needed */
+    margin-left: 0.2em;
+    /* you can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
+.icon-eject:before { content: '\23cf'; } /* '⏏' */
 .icon-tools:before { content: '\2692'; } /* '⚒' */
+.icon-cancel:before { content: '\2715'; } /* '✕' */
 .icon-cw:before { content: '\27f3'; } /* '⟳' */
 .icon-help-circled:before { content: '\e704'; } /* '' */
 .icon-eye:before { content: '\e70a'; } /* '' */

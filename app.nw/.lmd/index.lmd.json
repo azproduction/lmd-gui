@@ -2,8 +2,25 @@
     "root": "../js",
     "output": "../index.lmd.js",
     "modules": {
-        "main": "main.js"
+        "main": "main.js",
+
+        "$": "@jQuery",
+
+        "SidebarView": "views/sidebar.js",
+        "ProjectView": "views/project.js",
+        "BuildView": "views/build.js",
+
+        "ProjectModel": "models/project.js",
+        "BuildModel": "models/build.js",
+
+        "ProjectsCollection": "collections/projects.js",
+        "BuildsCollection": "collections/builds.js",
+
+        "ProjectTemplate": "templates/project.html",
+        "BuildTemplate": "templates/build.html"
     },
     "main": "main",
+
+    "shortcuts": true,
     "ie": false
 }
